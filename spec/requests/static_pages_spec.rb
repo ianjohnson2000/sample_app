@@ -13,10 +13,18 @@ describe "Static Pages" do
       
     end
     
-    it "should have the right title" do
+    it "should have the base title" do
       
       visit '/static_pages/home'
       page.should have_selector('title', 
+                                :text => "#{title}")
+                                
+    end
+    
+    it "it should not have a custom title" do
+      
+      visit '/static_pages/home'
+      page.should_not have_selector('title', 
                                 :text => "#{title} | Home")
                                 
     end
