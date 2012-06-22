@@ -8,12 +8,12 @@ describe "Static Pages" do
     
     it "should have the content 'Sample App'" do
       
-      visit '/static_pages/home'
+      visit root_path
       page.should have_selector('h1', text: 'Sample App')
       
     end
     
-    it "should have the base title" do
+    it "it should have the base title" do
       
       visit root_path
       page.should have_selector('title', 
@@ -83,6 +83,15 @@ describe "Static Pages" do
                                 text: "#{title} | Contact")
                                 
     end
+    
+    it "should have the right links on the layout" do
+      
+      visit root_path
+      click_link "sample app"
+      page.should have_selector('h1', text: 'Sample App')
+      
+    end
+    
   end
 
 end
