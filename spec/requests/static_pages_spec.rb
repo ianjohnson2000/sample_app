@@ -9,23 +9,23 @@ describe "Static Pages" do
     it "should have the content 'Sample App'" do
       
       visit '/static_pages/home'
-      page.should have_selector('h1', :text => 'Sample App')
+      page.should have_selector('h1', text: 'Sample App')
       
     end
     
     it "should have the base title" do
       
-      visit '/static_pages/home'
+      visit root_path
       page.should have_selector('title', 
-                                :text => "#{title}")
+                                text: "#{title}")
                                 
     end
     
     it "it should not have a custom title" do
       
-      visit '/static_pages/home'
+      visit root_path
       page.should_not have_selector('title', 
-                                :text => "#{title} | Home")
+                                text: "#{title} | Home")
                                 
     end
     
@@ -35,16 +35,16 @@ describe "Static Pages" do
     
     it "should have the content 'Help'" do
       
-      visit '/static_pages/help'
-      page.should have_selector('h1', :text => 'Help')
+      visit help_path
+      page.should have_selector('h1', text: 'Help')
       
     end
     
     it "should have the right title" do
       
-      visit '/static_pages/help'
+      visit help_path
       page.should have_selector('title', 
-                                :text => "#{title} | Help")
+                                text: "#{title} | Help")
                                 
     end
   end
@@ -53,16 +53,16 @@ describe "Static Pages" do
     
     it "should have the content 'About Us'" do
       
-      visit '/static_pages/about'
-      page.should have_selector('h1', :text => 'About Us')
+      visit about_path
+      page.should have_selector('h1', text: 'About Us')
       
     end
     
     it "should have the right title" do
       
-      visit '/static_pages/about'
+      visit about_path
       page.should have_selector('title', 
-                                :text => "#{title} | About Us")
+                                text: "#{title} | About Us")
                                 
     end
   end
@@ -71,16 +71,16 @@ describe "Static Pages" do
     
     it "should have the content 'Contact'" do
       
-      visit '/static_pages/contact'
-      page.should have_selector('h1', :text => 'Contact')
+      visit contact_path
+      page.should have_selector('h1', text: 'Contact')
       
     end
     
     it "should have the right title" do
       
-      visit '/static_pages/contact'
+      visit contact_path
       page.should have_selector('title', 
-                                :text => "#{title} | Contact")
+                                text: "#{title} | Contact")
                                 
     end
   end
