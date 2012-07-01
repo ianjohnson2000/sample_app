@@ -40,6 +40,9 @@ describe "Static Pages" do
   it "should have the right links on the layout" do
     
     visit root_path
+    click_link "Sign In"
+    page.should have_selector('title', text: full_title('Sign In'))
+    
     click_link "sample app"
     page.should have_selector('title', text: full_title(''))
     
