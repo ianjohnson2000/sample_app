@@ -3,6 +3,13 @@ require 'spec_helper'
 describe "Authentication" do
   
   subject { page }
+  
+  describe "when not signed in" do
+    before { visit root_path }
+    it { should_not have_link('Sign Out',     href: signout_path) }
+    it { should_not have_link('Users',        href: users_path) }
+    it { should have_link('Sign In',          href: signin_path) }
+  end
 
   describe "sign in page" do
     before { visit signin_path }
